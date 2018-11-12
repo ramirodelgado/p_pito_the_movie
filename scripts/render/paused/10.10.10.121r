@@ -1,0 +1,4 @@
+sudo /usr/bin/blender -b --enable-autoexec -P /mnt/z/scripts/Mis_def.py  "/mnt/z/_FOTO/E31/E31_02_T06-T11_AF_baked.blend" -P /mnt/z/scripts/rformat.py -o LOCALRENDERFOLDER/E31_T06-T11/E31_02_T06-T11_AF_baked_ -F  MULTILAYER -x 1 -f 250  
+E31
+65|0|E31_T06-T11|250|/mnt/z/_FOTO/E31|E31_02_T06-T11_AF_baked.blend|0|EN_COLA|0
+34

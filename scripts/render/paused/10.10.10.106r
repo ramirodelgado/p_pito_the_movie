@@ -1,0 +1,4 @@
+sudo /usr/bin/blender -b --enable-autoexec -P /mnt/z/scripts/Mis_def.py  "/mnt/z/_FOTO/E04/E04_01_T04_AF_bakeback.blend" -P /mnt/z/scripts/rformat.py -o LOCALRENDERFOLDER/E04_T04_Bake/E04_01_T04_AF_bakeback_ -F  MULTILAYER -x 1 -f 624  
+E04
+133|0|E04_T04_Bake|624|/mnt/z/_FOTO/E04|E04_01_T04_AF_bakeback.blend|0|EN_COLA|0
+5
