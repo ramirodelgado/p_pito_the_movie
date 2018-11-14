@@ -1,13 +1,15 @@
 import bpy
 import time
-import shutil
-import sys
-import os
+
 ############################################################################
-# COPY CONSTRAINT FROM ACTIVE BONE TO SELECTED OBJECT BONE WITH SAME NAME
+# COPY CONSTRAINTS FROM ACTIVE BONE TO ANOTHER SELECTED OBJECT ARMATURE BONE
+# WITH SAME NAME
+#
+# Ramiro Delgado 2018 Pepito La Pelicula
 ############################################################################
 
-from os.path import exists
+losconstraints=[]
+
 
 print('=======================\n')
 print('\n'+time.ctime()+'\n')
@@ -35,38 +37,31 @@ nonmod=['__doc__', '__module__', '__slots__','bl_rna','rna_type','error_location
 notwritable=['type']
 #nonmod=[]
 
-c_data={}
-
-
 for constraint in pb.constraints:
     #tipo=constraint.type
+    c_data={}
     for cs in dir(constraint):
+        
         if cs not in nonmod:
             #print(cs)
             #print(getattr(constraint,cs))
             c_data [cs] = getattr(constraint,cs)
-
-print(c_data)
-
-print('copiar a ')
-print(nb)
-newconstraint=nb.constraints.new(c_data['type'])
-
-for setting in c_data:
-    print(setting)
-    print(c_data[setting])
-    
-    if setting in notwritable:
-        print('notwritable')
         
-    else:
+    losconstraints.append(c_data)
+        
     
-        setattr(newconstraint,setting,c_data[setting])
 
-if not os.path.exists(path):
-    print('no existe o no se puede leer el path %s'%path)
-else:
-    rpath=path+'copy_contraint_tmp'
-    fh = open(rpath, 'w')
-    fh.write(str(c_data))
-    fh.close()
+for myc in losconstraints:
+    
+    print(myc)
+    newconsmytraint=nb.constraints.new(myc.get('type'))
+    
+    for setting in myc:
+        print(setting)
+        print(myc[setting])
+        
+        if setting in notwritable:
+            print('notwritable')
+            
+        else:
+           setattr(newconsmytraint,setting,myc[setting])
